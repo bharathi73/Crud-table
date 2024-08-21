@@ -1,0 +1,54 @@
+<mvc:View controllerName="com.techm.crudtable.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>CRUD Table}">
+        <content />
+        <Table id="productTable" items="{productModel>/Products}">
+            <headerToolbar>
+                <Toolbar >
+                    <ToolbarSpacer ></ToolbarSpacer>
+                    <HBox>
+                        <Input placeholder="Enter the ID for the product" id="idinput"/>
+                        <Input placeholder="Enter the product name" id="nameinput"/>
+                        <Input placeholder="Enter the price" id="price"/>
+                        <Input placeholder="Enter the Rating" id="rating"/>
+                    </HBox>
+                    <Button text="Create" press="createData"></Button>
+                </Toolbar>
+            </headerToolbar>
+            <columns>
+                <Column>
+                    <Text text="Product ID"></Text>
+                </Column>
+                <Column>
+                    <Text text="Product Name"></Text>
+                </Column>
+                <Column>
+                    <Text text="Price"></Text>
+                </Column>
+                <Column>
+                    <Text text="Rating"></Text>
+                </Column>
+                <Column>
+                    <Text text="Action"></Text>
+                </Column>
+                
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{productModel>ID}"></Text>
+                        <Text text="{productModel>Name}"></Text>
+                        <Input value="{productModel>Price}" editable="false"/>
+                        <Input value="{productModel>Rating}" editable="false"/> 
+                        <HBox>
+                            <Button icon="sap-icon://delete" text="delete" type="Reject" press="deleteData"/>
+                            <Button icon="sap-icon://edit" text="edit" class="sapUiSmallMarginBeginEnd" press="editData"/>
+                            <Button icon="sap-icon://copy" text="copy" press="onDuplicate"/>
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>
